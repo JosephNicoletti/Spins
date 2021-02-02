@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Merry-Go-Round</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body style="text-align: center;">
+	<h1 style="color: red; font-size: 3em;">Javascript Merry-Go-Round</h1>
+	<h2>How Many Spins Can You Handle?</h2>
+	<h3>Click the button below to begin:</h3>
+	<input type="button" value="Let's Go!" onclick="spin()"/>
+	<br/>
+	<br/>
+	<div></div>
+	<h3></h3>
+
+	<script>
+		//definition of the spin()function
+		function spin() {
+			// variable that stores the result of the user input
+			var spins = window.prompt("How many spins do you want to take?");
+			//convert the spins variable into a integer
+			spins = parseInt(spins);
+
+			// Erase any old data that might be in the <div> of the document already
+			document.getElementsByTagName("div")[0].innerHTML = "";
+
+			// repeat a statement based on the amunt of spins the user has entered
+			for(var x = 1; x <= spins; x++){
+				document.getElementsByTagName("div")[0].innerHTML += "WOO HOO! <br/>";
+			}
+
+			// if the number of spins is over 15, the <h3> should contain a special message, otherwise a different message will appear
+			if(spins > 15){
+				document.getElementsByTagName("h3")[1].textContent = "KEEP ER GOINGGGGG!!";
+			} else if(spins <= 15){
+				document.getElementsByTagName("h3")[1].textContent = "Is that all? Let's keep going!";
+			}else {
+				document.getElementsByTagName("h3")[1].textContent = "Hey stop messing around and Put a real number.";
+			}
+		}// end of spin function
+	</script>
+</body>
+</html>
